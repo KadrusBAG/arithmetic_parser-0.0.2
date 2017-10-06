@@ -1,33 +1,40 @@
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 int main()
 {
+    bool f=true;
+    string stroka;
     double a, b;
-    char op1, op2;
-    cin>>a;
-    cin.get(op1);
-    while(op1!='\n'){
-        cin.get(op2);
-        cin.get(op1);
-        cin>>b;
-        cin.get(op1);
-        if(op2=='+'){
+    char op;
+    getline(cin, stroka);
+    istringstream stream(stroka);
+    stream>>a;
+    while(stream>>op){
+        stream>>b;
+        if(op=='+'){
             a+=b;
         }
-        else if(op2=='-'){
+        if(op=='-'){
             a-=b;
         }
-        else if(op2=='*'){
+        if(op=='*'){
             a=a*b;
         }
-        else if(op2=='/'){
-            if(b==0){cout<<"error"; return -1;}
-            else{
+        if(op=='/'){
+            if(b!=0){
                 a=a/b;
+            }
+            else{
+                cout<<"ERROR"<<endl;
+                f=false;
+                return -1;
             }
         }
     }
-    cout<<a<<endl;
-    return 0;
+    if(f){
+        cout<<a<<endl;
+        return 0;
+    }
 }
