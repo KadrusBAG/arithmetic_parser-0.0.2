@@ -4,7 +4,6 @@ using namespace std;
 
 int main()
 {
-    bool f=true;
     string stroka;
     double a, b;
     char op;
@@ -28,13 +27,10 @@ int main()
             }
             else{
                 cout<<"ERROR"<<endl;
-                f=false;
                 return -1;
             }
         }
     }
-    if(f){
-        cout<<a<<endl;
-        return 0;
-    }
+    cout<<a<<endl;
+    return 0;
 }
